@@ -296,12 +296,10 @@ exports.login = async (req, res) => {
   try {
     const { username, password } = req.body;
     if (!username || !password)
-      return res
-        .status(400)
-        .json({
-          success: false,
-          message: "Username and password are required",
-        });
+      return res.status(400).json({
+        success: false,
+        message: "Username and password are required",
+      });
 
     const admin = await Admin.findOne({ where: { username: username.trim() } });
     if (!admin)
@@ -343,31 +341,25 @@ exports.createAdmin = async (req, res) => {
   try {
     const { username, password, email } = req.body;
     if (!username || !password || !email)
-      return res
-        .status(400)
-        .json({
-          success: false,
-          message: "Username, password, and email are required",
-        });
+      return res.status(400).json({
+        success: false,
+        message: "Username, password, and email are required",
+      });
 
     if (password.length < 6)
-      return res
-        .status(400)
-        .json({
-          success: false,
-          message: "Password must be at least 6 characters long",
-        });
+      return res.status(400).json({
+        success: false,
+        message: "Password must be at least 6 characters long",
+      });
 
     const existingAdmin =
       (await Admin.findOne({ where: { username } })) ||
       (await Admin.findOne({ where: { email } }));
     if (existingAdmin)
-      return res
-        .status(400)
-        .json({
-          success: false,
-          message: "Admin with this username or email already exists",
-        });
+      return res.status(400).json({
+        success: false,
+        message: "Admin with this username or email already exists",
+      });
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const admin = await Admin.create({
@@ -376,13 +368,11 @@ exports.createAdmin = async (req, res) => {
       password: hashedPassword,
     });
 
-    res
-      .status(201)
-      .json({
-        success: true,
-        message: "Admin account created successfully",
-        admin: { username: admin.username, email: admin.email },
-      });
+    res.status(201).json({
+      success: true,
+      message: "Admin account created successfully",
+      admin: { username: admin.username, email: admin.email },
+    });
   } catch (error) {
     console.error("Error creating admin:", error);
     res
@@ -409,9 +399,12 @@ exports.getAllContacts = async (req, res) => {
         if (search) {
           const lowerSearch = search.toLowerCase();
           return (
-            contact.name.toLowerCase().includes(lowerSearch) ||
-            contact.email.toLowerCase().includes(lowerSearch) ||
-            contact.subject.toLowerCase().includes(lowerSearch)
+            contact?.name.toLowerCase().includes(lowerSearch) ||
+            contact?.email.toLowerCase().includes(lowerSearch) ||
+            contact?.subject.toLowerCase().includes(lowerSearch) ||
+            String(contact?.mobile || "")
+              .toLowerCase()
+              .includes(lowerSearch)
           );
         }
         return true;

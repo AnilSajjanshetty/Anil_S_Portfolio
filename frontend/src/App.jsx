@@ -493,6 +493,7 @@ const App = () => {
       name: '',
       email: '',
       subject: '',
+      mobile: null,
       message: ''
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -641,6 +642,18 @@ const App = () => {
                     required
                     className="w-full bg-slate-900/50 border border-amber-500/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-all placeholder-slate-600"
                     placeholder="john@example.com"
+                  />
+                </div>
+                <div>
+                  <label className="block text-slate-300 mb-2 text-sm font-medium">Your Mobile No.</label>
+                  <input
+                    type="number"
+                    name="mobile"
+                    value={formData.mobile}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full bg-slate-900/50 border border-amber-500/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-all placeholder-slate-600"
+                    placeholder="9999999999"
                   />
                 </div>
                 <div>

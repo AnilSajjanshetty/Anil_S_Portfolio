@@ -94,7 +94,7 @@ const AdminDashboard = () => {
 
             if (response.ok) {
                 const data = await response.json();
-                setStats(data);
+                setStats(data?.stats);
             }
         } catch (error) {
             console.error('Error fetching stats:', error);
@@ -328,8 +328,9 @@ const AdminDashboard = () => {
                                         >
                                             <div className="flex items-start justify-between mb-2">
                                                 <div className="flex-1 min-w-0">
-                                                    <h3 className="text-white font-semibold text-sm truncate">{contact.name}</h3>
-                                                    <p className="text-slate-400 text-xs truncate">{contact.email}</p>
+                                                    <h3 className="text-white font-semibold text-sm truncate">{contact?.name}</h3>
+                                                    <p className="text-slate-400 text-xs truncate">{contact?.email}</p>
+                                                    <p className="text-slate-400 text-xs truncate">{contact?.mobile}</p>
                                                 </div>
                                                 <span className={`px-2 py-1 rounded text-xs font-medium ${contact.status === 'unread' ? 'bg-amber-500/20 text-amber-400' :
                                                     contact.status === 'read' ? 'bg-green-500/20 text-green-400' :
@@ -408,6 +409,7 @@ const AdminDashboard = () => {
                                         <h3 className="text-amber-500 font-semibold mb-2">From:</h3>
                                         <p className="text-white font-medium">{selectedContact.name}</p>
                                         <p className="text-slate-400 text-sm">{selectedContact.email}</p>
+                                        <p className="text-slate-400 text-sm">{selectedContact.mobile}</p>
                                     </div>
 
                                     <div className="mb-6">
@@ -439,6 +441,15 @@ const AdminDashboard = () => {
                                                 className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-semibold text-sm transition-all"
                                             >
                                                 Copy Email
+                                            </button>
+                                            <button
+                                                onClick={() => {
+                                                    navigator.clipboard.writeText(selectedContact.mobile);
+                                                    alert('Mobile No. copied to clipboard!');
+                                                }}
+                                                className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-semibold text-sm transition-all"
+                                            >
+                                                Copy Mobile No.
                                             </button>
                                         </div>
                                     </div>

@@ -4,10 +4,10 @@ const Contact = require("../models/Contact");
 // ---------------------- Submit Contact Form ----------------------
 exports.submitContact = async (req, res) => {
   try {
-    const { name, email, subject, message } = req.body;
+    const { name, email, mobile, subject, message } = req.body;
 
     // Validation
-    if (!name || !email || !subject || !message) {
+    if (!name || !email || !mobile || !subject || !message) {
       return res.status(400).json({
         success: false,
         message: "All fields are required",
@@ -22,16 +22,23 @@ exports.submitContact = async (req, res) => {
         message: "Please enter a valid email address",
       });
     }
-
+    const mobileRegex = /^\d{10}$/;
+    if (!mobileRegex.test(mobile)) {
+      return res.status(400).json({
+        success: false,
+        message: "Please enter a valid 10-digit mobile number",
+      });
+    }
     // Create Contact in MySQL
     const contact = await Contact.create({
       name: name.trim(),
       email: email.trim().toLowerCase(),
+      mobile: mobile.trim(),
       subject: subject.trim(),
       message: message.trim(),
     });
 
-    console.log(`✉️  New contact message from: ${email}`);
+    console.log(`✉️  New contact message from: ${email} | Mobile: ${mobile}`);
 
     res.status(201).json({
       success: true,

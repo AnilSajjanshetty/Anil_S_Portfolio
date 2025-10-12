@@ -21,6 +21,15 @@ const Contact = sequelize.define(
         isEmail: true,
       },
     },
+    mobile: {
+      type: DataTypes.BIGINT, // stores phone number as number
+      allowNull: false, // set to false if required
+      validate: {
+        isInt: true, // ensure only integers
+        min: 1000000000, // optional: minimum 10 digits
+        max: 9999999999, // optional: maximum 10 digits
+      },
+    },
     subject: {
       type: DataTypes.STRING(200),
       allowNull: false,
