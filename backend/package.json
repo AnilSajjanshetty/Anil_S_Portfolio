@@ -2,7 +2,7 @@
   "name": "portfolio-backend",
   "version": "1.0.0",
   "description": "Backend API for portfolio contact management",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
@@ -25,5 +25,8 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.2"
+  },
+   "engines": {
+    "node": "22.20.0"
   }
 }
