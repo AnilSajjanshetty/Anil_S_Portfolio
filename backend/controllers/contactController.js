@@ -1,4 +1,3 @@
-const { Op } = require("sequelize");
 const Contact = require("../models/Contact");
 
 // ---------------------- Submit Contact Form ----------------------
@@ -6,7 +5,7 @@ exports.submitContact = async (req, res) => {
   try {
     const { name, email, mobile, subject, message } = req.body;
 
-    // Validation
+    // Basic validation
     if (!name || !email || !mobile || !subject || !message) {
       return res.status(400).json({
         success: false,
@@ -22,6 +21,8 @@ exports.submitContact = async (req, res) => {
         message: "Please enter a valid email address",
       });
     }
+
+    // Mobile validation
     const mobileRegex = /^\d{10}$/;
     if (!mobileRegex.test(mobile)) {
       return res.status(400).json({
@@ -29,7 +30,8 @@ exports.submitContact = async (req, res) => {
         message: "Please enter a valid 10-digit mobile number",
       });
     }
-    // Create Contact in MySQL
+
+    // Create a new contact in MongoDB
     const contact = await Contact.create({
       name: name.trim(),
       email: email.trim().toLowerCase(),
@@ -38,22 +40,22 @@ exports.submitContact = async (req, res) => {
       message: message.trim(),
     });
 
-    console.log(`✉️  New contact message from: ${email} | Mobile: ${mobile}`);
+    console.log(`✉️ New contact message from: ${email} | Mobile: ${mobile}`);
 
     res.status(201).json({
       success: true,
       message: "Message sent successfully! We will get back to you soon.",
-      contactId: contact.id,
+      contactId: contact._id,
     });
   } catch (error) {
     console.error("❌ Error saving contact:", error);
 
-    // Validation errors from Sequelize
-    if (error.name === "SequelizeValidationError") {
+    // Handle Mongoose validation errors
+    if (error.name === "ValidationError") {
       return res.status(400).json({
         success: false,
         message: "Invalid form data",
-        errors: error.errors.map((err) => err.message),
+        errors: Object.values(error.errors).map((err) => err.message),
       });
     }
 

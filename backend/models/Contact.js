@@ -1,61 +1,59 @@
-// backend/models/Contact.js
-const { DataTypes } = require("sequelize");
-const { sequelize } = require("../config/database");
+const mongoose = require("mongoose");
 
-const Contact = sequelize.define(
-  "Contact",
+const contactSchema = new mongoose.Schema(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-    },
     name: {
-      type: DataTypes.STRING(100),
-      allowNull: false,
+      type: String,
+      required: true,
+      trim: true,
+      maxlength: 100,
     },
     email: {
-      type: DataTypes.STRING(150),
-      allowNull: false,
-      validate: {
-        isEmail: true,
-      },
+      type: String,
+      required: true,
+      lowercase: true,
+      trim: true,
+      match: [/^\S+@\S+\.\S+$/, "Please provide a valid email"],
     },
     mobile: {
-      type: DataTypes.BIGINT, // stores phone number as number
-      allowNull: false, // set to false if required
-      validate: {
-        isInt: true, // ensure only integers
-        min: 1000000000, // optional: minimum 10 digits
-        max: 9999999999, // optional: maximum 10 digits
-      },
+      type: String, // store as string to preserve leading zeros
+      required: true,
+      match: [/^\d{10}$/, "Mobile number must be 10 digits"],
     },
     subject: {
-      type: DataTypes.STRING(200),
-      allowNull: false,
+      type: String,
+      required: true,
+      maxlength: 200,
+      trim: true,
     },
     message: {
-      type: DataTypes.TEXT,
-      allowNull: false,
+      type: String,
+      required: true,
+      trim: true,
     },
     status: {
-      type: DataTypes.ENUM("unread", "read", "replied"),
-      defaultValue: "unread",
+      type: String,
+      enum: ["unread", "read", "replied"],
+      default: "unread",
     },
     readAt: {
-      type: DataTypes.DATE,
-      allowNull: true,
+      type: Date,
+      default: null,
     },
     notes: {
-      type: DataTypes.TEXT,
-      defaultValue: "",
+      type: String,
+      default: "",
+      trim: true,
     },
   },
   {
-    tableName: "contacts",
-    timestamps: true, // createdAt & updatedAt
-    indexes: [{ fields: ["status", "createdAt"] }, { fields: ["email"] }],
+    timestamps: true,
+    collection: "contacts",
   }
 );
 
-module.exports = Contact;
+// Indexes (for better queries)
+contactSchema.index({ status: 1, createdAt: -1 });
+contactSchema.index({ email: 1 });
+
+module.exports = mongoose.model("Contact", contactSchema);

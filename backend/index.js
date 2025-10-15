@@ -1,9 +1,7 @@
-// backend/index.js
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const { connectDB, sequelize } = require("./config/database");
-
+const connectDB = require("./config/database");
 // Routes
 const adminRoutes = require("./routes/adminRoutes");
 const contactRoutes = require("./routes/contactRoutes");
@@ -31,8 +29,8 @@ app.use("/api", contactRoutes);
 // Start Server
 (async () => {
   try {
-    await connectDB();
-    await sequelize.sync({ alter: true }); // auto create/update tables
+    await connectDB(); // ✅ connect to MongoDB Atlas
+
     app.listen(PORT, () => {
       console.log(`🚀 Server running on http://localhost:${PORT}`);
     });
@@ -45,7 +43,8 @@ app.use("/api", contactRoutes);
 // Graceful shutdown
 process.on("SIGINT", async () => {
   console.log("\n💾 Shutting down server...");
-  await sequelize.close();
-  console.log("✅ Database connection closed");
+  const mongoose = require("mongoose");
+  await mongoose.connection.close();
+  console.log("✅ MongoDB connection closed");
   process.exit(0);
 });

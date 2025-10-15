@@ -1,47 +1,38 @@
-// backend/models/Admin.js
-const { DataTypes } = require("sequelize");
-const { sequelize } = require("../config/database");
+const mongoose = require("mongoose");
 
-const Admin = sequelize.define(
-  "Admin",
+const adminSchema = new mongoose.Schema(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-    },
     username: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
+      type: String,
+      required: true,
       unique: true,
-      validate: {
-        len: [3, 50],
-      },
+      minlength: 3,
+      maxlength: 50,
+      trim: true,
     },
     password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [6, 100],
-      },
+      type: String,
+      required: true,
+      minlength: 6,
+      maxlength: 100,
     },
     email: {
-      type: DataTypes.STRING(100),
-      allowNull: false,
+      type: String,
+      required: true,
       unique: true,
-      validate: {
-        isEmail: true,
-      },
+      match: [/^\S+@\S+\.\S+$/, "Please provide a valid email"],
+      lowercase: true,
+      trim: true,
     },
     lastLogin: {
-      type: DataTypes.DATE,
-      allowNull: true,
+      type: Date,
+      default: null,
     },
   },
   {
-    tableName: "admins",
-    timestamps: true, // createdAt & updatedAt
+    timestamps: true, // createdAt, updatedAt
+    collection: "admins",
   }
 );
 
-module.exports = Admin;
+module.exports = mongoose.model("Admin", adminSchema);
