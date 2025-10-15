@@ -15,7 +15,7 @@ const AdminDashboard = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [loading, setLoading] = useState(false);
 
-    const API_BASE = 'http://localhost:5000/api';
+    const API_BASE = import.meta.env.VITE_API_BASE;
 
     useEffect(() => {
         const savedToken = localStorage.getItem('adminToken');
