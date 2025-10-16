@@ -61,7 +61,7 @@ const App = () => {
           <div className="flex items-center gap-3">
             <div className="relative flex items-center space-x-3">
               {/* Gradient blur background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full blur-md opacity-50"></div>
+              <div className="absolute inset-0 bg-gradient-to-r  rounded-full blur-md opacity-50"></div>
 
               {/* Profile picture */}
               <div className="relative w-10 h-10 rounded-full overflow-hidden shadow-lg">
