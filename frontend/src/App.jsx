@@ -144,7 +144,7 @@ const App = () => {
             </div>
           </div>
 
-          <div className="order-1 md:order-2 flex justify-center">
+          <div className="order-1 md:order-1 flex justify-center">
             <div className="relative">
               {/* Animated Glow Effects */}
               <div className="absolute -inset-4 bg-gradient-to-r from-amber-500 via-orange-500 to-pink-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
@@ -169,10 +169,10 @@ const App = () => {
 
                 </div>
                 {/* Floating Badge */}
-                <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl px-6 py-3 shadow-xl border-4 border-slate-900">
+                <div className="absolute -bottom-4 -right-4 bg-emerald-800   rounded-xl px-6 py-3 shadow-[0_0_20px_rgba(16,185,129,0.8)] border border-emerald-400/50 backdrop-blur-md">
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
-                    <span className="text-white font-bold">Available</span>
+                    <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse shadow-[0_0_10px_3px_rgba(74,222,128,0.8)]"></div>
+                    <span className="text-emerald-200 font-semibold drop-shadow-[0_0_6px_rgba(74,222,128,0.8)]">Available</span>
                   </div>
                 </div>
               </div>
@@ -352,10 +352,17 @@ const App = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 rounded-3xl rotate-6"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-slate-700 to-slate-800 rounded-3xl overflow-hidden border-4 border-amber-500/30">
                 <div className="w-full h-full flex items-center justify-center">
-                  <div className="w-24 h-24 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center text-slate-900 text-4xl font-bold">
-                    AS
+                  <div className=" bg-gradient-to-br from-amber-500 to-orange-600 rounded-full shadow-lg">
+                    <div className="w-full h-full  overflow-hidden bg-white">
+                      <img
+                        src={profilePic}
+                        alt="Profile"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                   </div>
                 </div>
+
               </div>
             </div>
 
@@ -487,7 +494,7 @@ const App = () => {
       </section>
     </div>
   );
-
+  const API_BASE = import.meta.env.VITE_API_BASE;
   const ContactPage = () => {
     const [formData, setFormData] = useState({
       name: '',
@@ -513,7 +520,7 @@ const App = () => {
       setSubmitStatus(null);
 
       try {
-        const response = await fetch('http://localhost:5000/api/contact', {
+        const response = await fetch(`${API_BASE}/contact`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -696,11 +703,14 @@ const App = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-slate-900 py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-amber-500/50 transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-green-700 text-white py-4 rounded-xl font-semibold hover:bg-green-800 hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
-                  {!isSubmitting && <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
+                  {!isSubmitting && (
+                    <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  )}
                 </button>
+
               </form>
             </div>
           </div>
