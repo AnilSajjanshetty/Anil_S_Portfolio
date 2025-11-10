@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Github, Linkedin, Code, Database, Server, Cloud, ChevronRight, ExternalLink, Sparkles, Zap, Users, TrendingUp, Award, Briefcase, GraduationCap, MapPin, Phone } from 'lucide-react';
-import profilePic from "./assets/anils_profile.jpeg";
+import anils_photo from "./assets/anils_photo.jpeg";
 import shraddhsjinsImg from "./assets/images/shraddhsjinsImg.jpeg";
 import shraddhsjinsVideo from "./assets/videos/shraddhsjinsVideo.mp4";
 import schoolmanagementImg from "./assets/images/schoolmanagementImg.jpeg";
@@ -34,6 +34,7 @@ const App = () => {
       ],
       image: shraddhsjinsImg,
       video: shraddhsjinsVideo,
+      link: "https://shraddhajins.vercel.app/",
       featured: true,
       gradient: "from-pink-600 via-red-500 to-orange-500"
     },
@@ -51,6 +52,7 @@ const App = () => {
       ],
       image: schoolmanagementImg,
       video: schoolmanagementVideo,
+      link: "https://schoolmanagementbyanils.vercel.app/",
       featured: true,
       gradient: "from-blue-600 via-indigo-500 to-purple-600"
     },
@@ -68,6 +70,7 @@ const App = () => {
       ],
       image: functionhallImg,
       video: functionhallVideo,
+      link: "https://virajgardenbyanils2025.vercel.app/",
       featured: false,
       gradient: "from-emerald-500 via-teal-500 to-cyan-500"
     },
@@ -102,6 +105,7 @@ const App = () => {
       ],
       image: glamsImg,
       video: glamsVideo,
+      link: "https://agriglams.bihar.gov.in/landing/",
       featured: false,
       gradient: "from-green-500 via-teal-500 to-blue-500"
     },
@@ -151,7 +155,7 @@ const App = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-orange-500/20 rounded-full blur-md opacity-50"></div>
               <div className="relative w-10 h-10 rounded-full overflow-hidden shadow-lg">
                 <img
-                  src={profilePic}
+                  src={anils_photo}
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />
@@ -235,9 +239,9 @@ const App = () => {
                   <div className="w-full h-full bg-gradient-to-br from-slate-700 via-slate-600 to-slate-700 flex items-center justify-center">
                     <div className="text-center">
                       <img
-                        src={profilePic}
+                        src={anils_photo}
                         alt="Profile"
-                        className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 object-cover rounded-full shadow-2xl border-4 border-white/20"
+                        className="  object-cover shadow-2xl border-4 border-white/20"
                       />
                     </div>
                   </div>
@@ -285,35 +289,36 @@ const App = () => {
               key={project.id}
               onMouseEnter={() => handleMouseEnter(project.id)}
               onMouseLeave={() => handleMouseLeave(project.id)}
+              onClick={() => {
+                if (project.link) window.open(project.link, "_blank");
+              }}
               className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-amber-500/20 hover:border-amber-500/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/20 group relative cursor-pointer"
             >
+              {/* === Project Preview (Image/Video) === */}
               <div className="relative h-60 overflow-hidden bg-slate-900/40 flex items-center justify-center">
-                {/* ✅ If image exists */}
-                {project?.image ? (
+                {project?.image && (
                   <img
                     src={project.image}
                     alt={project.title || "Project image"}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                ) : null}
+                )}
 
-                {/* ✅ If video exists and is toggled to show */}
-                {showVideo[project.id] && project?.video ? (
+                {showVideo[project.id] && project?.video && (
                   <video
                     src={project.video}
                     autoPlay
                     muted
                     loop
                     playsInline
-                    className={`absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                    className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     onError={() => {
                       console.warn(`Video load error for ${project.title}`);
                       setShowVideo((prev) => ({ ...prev, [project.id]: false }));
                     }}
                   />
-                ) : null}
+                )}
 
-                {/* 🚫 If neither image nor video exists */}
                 {!project?.image && !project?.video && (
                   <div className="flex flex-col items-center justify-center w-full h-full text-slate-400">
                     <svg
@@ -334,13 +339,10 @@ const App = () => {
                   </div>
                 )}
 
-                {/* Gradient overlay */}
+                {/* Overlay and icons */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/20 to-transparent" />
-
-                {/* External link icon */}
                 <ExternalLink className="absolute top-4 right-4 w-6 h-6 text-amber-400 opacity-0 group-hover:opacity-100 transition-all duration-300" />
 
-                {/* Featured badge */}
                 {project?.featured && (
                   <div className="absolute top-4 left-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
                     Featured
@@ -348,13 +350,30 @@ const App = () => {
                 )}
               </div>
 
-
+              {/* === Project Details === */}
               <div className="p-4 sm:p-6">
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">{project.title}</h3>
                 <p className="text-amber-500 text-xs sm:text-sm mb-3">{project.subtitle}</p>
-                <p className="text-slate-400 text-xs sm:text-sm mb-4 leading-relaxed line-clamp-3">{project.description}</p>
+                <p className="text-slate-400 text-xs sm:text-sm mb-4 leading-relaxed line-clamp-3">
+                  {project.description}
+                </p>
 
-                <div className="grid grid-cols-3 gap-2 mb-4 hidden sm:grid">
+                {/* ✅ Clean “View Project →” link below description */}
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center text-amber-400 hover:text-amber-300 text-sm font-medium transition-all duration-300"
+                  >
+                    View Project
+                    <ExternalLink className="w-4 h-4 ml-1" />
+                  </a>
+                )}
+
+                {/* Metrics */}
+                <div className="grid grid-cols-3 gap-2 mt-4 hidden sm:grid">
                   {project.metrics.slice(0, 3).map((metric, idx) => (
                     <div key={idx} className="text-center p-2 bg-slate-900/50 rounded-lg">
                       <metric.icon className="w-4 h-4 text-amber-500 mx-auto mb-1" />
@@ -364,14 +383,20 @@ const App = () => {
                   ))}
                 </div>
 
-                <div className="flex flex-wrap gap-2 mb-4">
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mt-4">
                   {project.tech.slice(0, 4).map((tech) => (
-                    <span key={tech} className="bg-gradient-to-r from-slate-900/50 to-slate-800/50 text-amber-400 px-2 py-1 rounded-full text-xs border border-amber-500/30 hover:border-amber-500/50 transition-all">
+                    <span
+                      key={tech}
+                      className="bg-gradient-to-r from-slate-900/50 to-slate-800/50 text-amber-400 px-2 py-1 rounded-full text-xs border border-amber-500/30 hover:border-amber-500/50 transition-all"
+                    >
                       {tech}
                     </span>
                   ))}
                   {project.tech.length > 4 && (
-                    <span className="text-slate-500 text-xs self-center">+{project.tech.length - 4} more</span>
+                    <span className="text-slate-500 text-xs self-center">
+                      +{project.tech.length - 4} more
+                    </span>
                   )}
                 </div>
               </div>
@@ -379,6 +404,7 @@ const App = () => {
           ))}
         </div>
       </section>
+
     </div>
   );
 
@@ -397,7 +423,7 @@ const App = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-slate-700 to-slate-800 rounded-3xl overflow-hidden border-4 border-amber-500/30">
                 <div className="w-full h-full flex items-center justify-center">
                   <img
-                    src={profilePic}
+                    src={anils_photo}
                     alt="Profile"
                     className="w-full h-full object-cover rounded-full shadow-2xl"
                   />
