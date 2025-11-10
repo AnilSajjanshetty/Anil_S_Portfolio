@@ -11,6 +11,8 @@ import learndexImg from "./assets/images/learndexImg.jpeg";
 import learndexVideo from "./assets/videos/learndexVideo.mp4";
 import glamsImg from "./assets/images/glamsImg.png";
 import glamsVideo from "./assets/videos/glamsVideo.mp4";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+
 // import vegishopImg from "./assets/images/vegishopImg.jpeg"; // Assuming this exists, adjust path if needed
 // import vegishopVideo from "./assets/videos/vegishopVideo.mp4"; // Assuming this exists
 
@@ -365,7 +367,7 @@ const App = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center text-amber-400 hover:text-amber-300 text-sm font-medium transition-all duration-300"
+                    className="inline-flex items-center text-amber-400 hover:text-blue-300 text-sm font-medium transition-all duration-300"
                   >
                     View Project
                     <ExternalLink className="w-4 h-4 ml-1" />
@@ -733,24 +735,35 @@ const App = () => {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-slate-800/50 to-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-amber-500/20">
-                <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+              <div className="bg-gradient-to-br from-slate-800/50 to-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-amber-500/20 text-center">
+                <h3 className="text-lg font-semibold text-white mb-6 flex items-center justify-center gap-2">
                   <Sparkles className="w-5 h-5 text-amber-500" />
                   Connect on Social Media
                 </h3>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer"
-                    className="flex-1 bg-slate-900/50 p-4 rounded-xl hover:bg-amber-500/20 transition-all duration-300 border border-amber-500/20 hover:border-amber-500/50 group text-center">
-                    <Github className="w-8 h-8 text-amber-500 mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                    <p className="text-slate-300 text-sm">GitHub</p>
+
+                <div className="flex justify-center items-center gap-20">
+                  <a
+                    href="https://github.com/AnilSajjanshetty?tab=repositories"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center text-gray-300 hover:text-white transition-colors duration-300"
+                  >
+                    <FaGithub className="w-8 h-8 mb-2" />
+                    <span className="text-sm font-medium">GitHub</span>
                   </a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
-                    className="flex-1 bg-slate-900/50 p-4 rounded-xl hover:bg-amber-500/20 transition-all duration-300 border border-amber-500/20 hover:border-amber-500/50 group text-center">
-                    <Linkedin className="w-8 h-8 text-amber-500 mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                    <p className="text-slate-300 text-sm">LinkedIn</p>
+
+                  <a
+                    href="https://www.linkedin.com/in/anil-sajjanshetty-14253b103/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center text-[#0A66C2] hover:text-[#0077b5] transition-colors duration-300"
+                  >
+                    <FaLinkedin className="w-8 h-8 mb-2" />
+                    <span className="text-sm font-medium">LinkedIn</span>
                   </a>
                 </div>
               </div>
+
             </div>
 
             <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-amber-500/20 hover:border-amber-500/50 transition-all duration-300">
@@ -874,18 +887,18 @@ const App = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div className="text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
+              <div className="flex items-center justify-start md:justify-start gap-3 mb-4">
                 <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center text-slate-900 font-bold">
                   AS
                 </div>
                 <span className="text-white font-bold text-lg">Anil Sajjanshetty</span>
               </div>
-              <p className="text-slate-400 text-sm">
+              <p className="text-slate-400 text-sm text-start">
                 Full Stack Software Engineer passionate about building scalable web applications.
               </p>
             </div>
 
-            <div className="text-center md:text-left">
+            <div className="md:text-left">
               <h4 className="text-white font-semibold mb-3">Quick Links</h4>
               <div className="space-y-2">
                 {['home', 'about', 'contact'].map((page) => (
@@ -900,7 +913,7 @@ const App = () => {
               </div>
             </div>
 
-            <div className="text-center md:text-left">
+            <div className=" md:text-left">
               <h4 className="text-white font-semibold mb-3">Get in Touch</h4>
               <div className="space-y-2 text-slate-400 text-sm">
                 <p className="flex items-center justify-start  gap-2">
@@ -923,16 +936,27 @@ const App = () => {
             <p className="text-slate-400 text-sm">
               © 2025 Anil Sajjanshetty.
             </p>
-            <div className="flex gap-4">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer"
-                className="text-slate-400 hover:text-amber-500 transition-colors">
-                <Github className="w-5 h-5" />
+            <div className="flex items-center gap-4">
+              <a
+                href="https://github.com/AnilSajjanshetty?tab=repositories"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-white transition-colors duration-300"
+              >
+                <FaGithub className="w-6 h-6" />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
-                className="text-slate-400 hover:text-amber-500 transition-colors">
-                <Linkedin className="w-5 h-5" />
+
+              <a
+                href="https://www.linkedin.com/in/anil-sajjanshetty-14253b103/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#0A66C2] hover:text-[#0077b5] transition-colors duration-300"
+              >
+                <FaLinkedin className="w-6 h-6" />
               </a>
             </div>
+
+
           </div>
         </div>
       </footer>
