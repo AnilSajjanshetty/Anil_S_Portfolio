@@ -753,7 +753,7 @@ const App = () => {
                   </a>
 
                   <a
-                    href="https://www.linkedin.com/in/anil-sajjanshetty-14253b103/"
+                    href="https://www.linkedin.com/in/anilsajjanshetty/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex flex-col items-center text-[#0A66C2] hover:text-[#0077b5] transition-colors duration-300"
@@ -947,7 +947,7 @@ const App = () => {
               </a>
 
               <a
-                href="https://www.linkedin.com/in/anil-sajjanshetty-14253b103/"
+                href="https://www.linkedin.com/in/anilsajjanshetty/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#0A66C2] hover:text-[#0077b5] transition-colors duration-300"
