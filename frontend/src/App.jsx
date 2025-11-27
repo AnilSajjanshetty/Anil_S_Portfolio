@@ -206,7 +206,7 @@ const App = () => {
               </span>
             </h1>
             <p className="text-slate-400 text-base sm:text-lg mb-8 leading-relaxed px-4 lg:px-0">
-              Web Application Developer with 2 years of hands-on experience in building scalable Java-based web applications using Spring Boot, Hibernate, and ReactJS. Proficient in full-stack development with strong expertise in backend services, RESTful APIs, microservices architecture, and frontend technologies including TypeScript, HTML5, CSS3, and Bootstrap.
+              Full Stack Developer with 2 years of hands-on experience in building scalable Java-based web applications using Spring Boot, Hibernate, and ReactJS. Proficient in full-stack development with strong expertise in backend services, RESTful APIs, microservices architecture, and frontend technologies including TypeScript, HTML5, CSS3, and Bootstrap.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
               <a href="mailto:anilsajjanshetty112@gmail.com"
