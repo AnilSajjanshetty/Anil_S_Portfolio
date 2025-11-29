@@ -211,14 +211,14 @@ const App = () => {
             </h1>
             <p className="text-slate-400 text-base sm:text-lg mb-8 leading-relaxed px-4 lg:px-0">
               Full Stack Developer with 2+ years of hands-on experience specializing in
-              <span className="text-amber-400 font-semibold"> MERN Stack</span>
+              <span className="text-amber-400 font-semibold"> MERN Stack </span>
               (MongoDB, Express.js, React.js, Node.js) and modern web technologies. Expert in
-              <span className="text-amber-400 font-semibold">JavaScript, TypeScript, Python, and Java
+              <span className="text-amber-400 font-semibold"> JavaScript, TypeScript, Python, and Java
               </span> with strong proficiency in building scalable applications using
-              <span className="text-amber-400 font-semibold">Django, Spring Boot, RESTful APIs, and microservices architecture</span>.
-              Experienced with <span className="text-amber-400 font-semibold">DevOps tools</span>
+              <span className="text-amber-400 font-semibold"> Django, Spring Boot, RESTful APIs, and microservices architecture</span>.
+              Experienced with <span className="text-amber-400 font-semibold"> DevOps tools </span>
               including Docker, Git, Prometheus, and Grafana. Additionally skilled in
-              <span className="text-amber-400 font-semibold">AI/ML technologies </span>
+              <span className="text-amber-400 font-semibold"> AI/ML technologies </span>
               including <span className="text-amber-400 font-semibold">Generative AI</span>, Neural Networks (ANN, CNN, RNN, LSTM), NLP, and frameworks like TensorFlow, NumPy, Pandas, and Hugging Face.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
