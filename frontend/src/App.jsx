@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Github, Linkedin, Code, Database, Server, Cloud, ChevronRight, ExternalLink, Sparkles, Zap, Users, TrendingUp, Award, Briefcase, GraduationCap, MapPin, Phone } from 'lucide-react';
+import { Mail, Github, Linkedin, Code, Database, Server, Cloud, ChevronRight, ExternalLink, Sparkles, Zap, Users, TrendingUp, Award, Briefcase, GraduationCap, MapPin, Phone, Brain } from 'lucide-react';
 import anils_photo from "./assets/anils_photo.jpeg";
 import shraddhsjinsImg from "./assets/images/shraddhsjinsImg.jpeg";
 import shraddhsjinsVideo from "./assets/videos/shraddhsjinsVideo.mp4";
@@ -131,11 +131,12 @@ const App = () => {
   ];
 
   const skills = {
-    frontend: ["ReactJS", "HTML5", "CSS3", "Bootstrap", "Tailwind-css", "Responsive Design", "jQuery", "AJAX", "JSON", "XML"],
-    backend: ["Java", "JavaScript (ES6+)", "TypeScript", "Python", "Spring Boot", "Spring MVC", "Spring Data JPA", "Hibernate", "JSP", "Node.js", "Express.js", "Django"],
-    database: ["PostgreSQL", "MySQL", "Oracle", "MongoDB", "SQL", "Redis", "Database Design"],
-    devops: ["Docker", "CI/CD", "Git", "Apache Tomcat", "Eclipse", "Visual Studio Code", "Postman", "Prometheus", "Grafana",],
-    other: ["RESTful APIs", "Microservices Architecture", "RabbitMQ", "Web Services", "JWT Authentication", "OAuth 2.0", "Unit Testing", "Integration Testing", "UAT", "Code Quality Assurance", "Agile/Scrum", "Sprint Planning", "Requirements Analysis", "Technical Documentation"]
+    frontend: ["React.js", "Next.js", "TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap", "Redux", "jQuery", "AJAX", "Responsive Design"],
+    backend: ["Node.js", "Express.js", "Python", "Django", "Java", "Spring Boot", "Spring MVC", "Spring Data JPA", "Hibernate", "JSP", "RESTful APIs", "Microservices"],
+    database: ["MongoDB", "PostgreSQL", "MySQL", "Oracle", "Redis", "SQL", "Database Design", "NoSQL"],
+    devops: ["Docker", "Git", "GitHub", "CI/CD", "Prometheus", "Grafana", "Apache Tomcat", "Linux", "AWS", "Postman", "Swagger"],
+    ai_ml: ["Generative AI", "Neural Networks (ANN, CNN, RNN, LSTM)", "Natural Language Processing (NLP)", "TensorFlow", "PyTorch", "NumPy", "Pandas", "Scikit-learn", "Hugging Face", "Machine Learning"],
+    other: ["RabbitMQ", "Web Services", "JWT Authentication", "OAuth 2.0", "Unit Testing", "Integration Testing", "UAT", "Agile/Scrum", "Sprint Planning", "Technical Documentation", "Code Quality Assurance"]
   };
 
   const handleMouseEnter = (id) => {
@@ -172,7 +173,7 @@ const App = () => {
               <button
                 key={page}
                 onClick={() => setActivePage(page)}
-                className={`capitalize transition-all duration-300 relative text-sm sm:text-base ${activePage === page
+                className={`capitalize transition-all duration-300 relative text-sm sm:text-base cursor-pointer ${activePage === page
                   ? 'text-amber-500 font-semibold'
                   : 'text-slate-300 hover:text-amber-400'
                   }`}
@@ -197,25 +198,37 @@ const App = () => {
           <div className="order-2 lg:order-1 text-center lg:text-left">
             <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
               <Sparkles className="w-5 h-5 text-amber-500 animate-pulse" />
-              <span className="text-amber-500 font-semibold text-sm sm:text-base">Full Stack Developer</span>
+              <span className="text-amber-500 font-semibold text-sm sm:text-base">Full Stack Developer | MERN Developer | Gen-AI Engineer</span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight">
               Building Scalable
               <span className="block bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 bg-clip-text text-transparent">
-                Web Experiences
+                Full Stack Solutions
+              </span>
+              <span className="block text-2xl sm:text-3xl lg:text-4xl mt-2 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+                Powered by AI Innovation
               </span>
             </h1>
             <p className="text-slate-400 text-base sm:text-lg mb-8 leading-relaxed px-4 lg:px-0">
-              Full Stack Developer with 2 years of hands-on experience in building scalable Java-based web applications using Spring Boot, Hibernate, and ReactJS. Proficient in full-stack development with strong expertise in backend services, RESTful APIs, microservices architecture, and frontend technologies including TypeScript, HTML5, CSS3, and Bootstrap.
+              Full Stack Developer with 2 years of hands-on experience specializing in
+              <span className="text-amber-400 font-semibold">MERN Stack</span>
+              (MongoDB, Express.js, React.js, Node.js) and modern web technologies. Expert in
+              <span className="text-amber-400 font-semibold">JavaScript, TypeScript, Python, and Java
+              </span> with strong proficiency in building scalable applications using
+              <span className="text-amber-400 font-semibold">Django, Spring Boot, RESTful APIs, and microservices architecture</span>.
+              Experienced with <span className="text-amber-400 font-semibold">DevOps tools</span>
+              including Docker, Git, Prometheus, and Grafana. Additionally skilled in
+              <span className="text-amber-400 font-semibold">AI/ML technologies </span>
+              including <span className="text-amber-400 font-semibold">Generative AI</span>, Neural Networks (ANN, CNN, RNN, LSTM), NLP, and frameworks like TensorFlow, NumPy, Pandas, and Hugging Face.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
-              <a href="mailto:anilsajjanshetty112@gmail.com"
-                className="group bg-gradient-to-r from-amber-500 to-orange-500 text-slate-900 px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-amber-500/50 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto">
+              <button onClick={() => setActivePage('contact')}
+                className="group bg-gradient-to-r from-amber-500 to-orange-500 text-slate-900 px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-amber-500/50 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto cursor-pointer">
                 Get In Touch
                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </button>
               <button onClick={() => setActivePage('about')}
-                className="border-2 border-amber-500 text-amber-500 px-6 py-3 rounded-full font-semibold hover:bg-amber-500/10 transition-all duration-300 w-full sm:w-auto">
+                className="border-2 border-amber-500 text-amber-500 px-6 py-3 rounded-full font-semibold hover:bg-amber-500/10 transition-all duration-300 w-full sm:w-auto cursor-pointer">
                 Learn More
               </button>
             </div>
@@ -512,6 +525,7 @@ const App = () => {
             { title: "Frontend Development", icon: Code, skills: skills.frontend, gradient: "from-blue-500 to-cyan-500" },
             { title: "Backend Development", icon: Server, skills: skills.backend, gradient: "from-green-500 to-emerald-500" },
             { title: "Database & Caching", icon: Database, skills: skills.database, gradient: "from-purple-500 to-pink-500" },
+            { title: "AI & Machine Learning", icon: Brain, skills: skills.ai_ml, gradient: "from-violet-500 to-fuchsia-500" },
             { title: "DevOps & Tools", icon: Cloud, skills: skills.devops, gradient: "from-orange-500 to-red-500" },
             { title: "Other Skills", icon: Sparkles, skills: skills.other, gradient: "from-amber-500 to-yellow-500" }
           ].map((category, idx) => (
@@ -848,7 +862,7 @@ const App = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-slate-900 py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-amber-500/50 transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-slate-900 py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-amber-500/50 transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                 >
                   <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
                   {!isSubmitting && (
@@ -905,7 +919,7 @@ const App = () => {
                   <button
                     key={page}
                     onClick={() => setActivePage(page)}
-                    className="block text-slate-400 hover:text-amber-500 transition-colors capitalize text-sm"
+                    className="block text-slate-400 hover:text-amber-500 transition-colors capitalize text-sm cursor-pointer"
                   >
                     {page}
                   </button>
