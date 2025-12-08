@@ -235,7 +235,7 @@ const App = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 text-slate-400 text-sm sm:text-base">
               <div className="flex items-center gap-2">
                 <Briefcase className="w-5 h-5 text-amber-500" />
-                <span>2+ Years Experience</span>
+                <span>3.8+ Years Experience</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-5 h-5 text-amber-500" />
