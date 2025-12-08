@@ -481,7 +481,7 @@ const App = () => {
                 Professional Summary
               </h2>
               <p className="text-slate-300 leading-relaxed mb-4 text-sm sm:text-base">
-                Web Application Developer with 2 years of hands-on experience in building scalable Java-based web applications using Spring Boot, Hibernate, and ReactJS. Proficient in full-stack development with strong expertise in backend services, RESTful APIs, microservices architecture, and frontend technologies including TypeScript, HTML5, CSS3, and Bootstrap.
+                Web Application Developer with 3.8+ years of hands-on experience in building scalable Java-based web applications using Spring Boot, Hibernate, and ReactJS. Proficient in full-stack development with strong expertise in backend services, RESTful APIs, microservices architecture, and frontend technologies including TypeScript, HTML5, CSS3, and Bootstrap.
               </p>
               <p className="text-slate-300 leading-relaxed mb-4 text-sm sm:text-base">
                 Experienced in PostgreSQL/MySQL database design, SQL query optimization, and working with Apache Tomcat. Skilled in Agile/Scrum methodologies, implementation support, user requirement analysis, and facilitating communication between development teams and end users. Fluent in English and Hindi with excellent problem-solving and collaboration skills.
