@@ -210,7 +210,7 @@ const App = () => {
               </span>
             </h1>
             <p className="text-slate-400 text-base sm:text-lg mb-8 leading-relaxed px-4 lg:px-0">
-              Full Stack Developer with 2+ years of hands-on experience specializing in
+              Full Stack Developer with 3.8+ years of hands-on experience specializing in
               <span className="text-amber-400 font-semibold"> MERN Stack </span>
               (MongoDB, Express.js, React.js, Node.js) and modern web technologies. Expert in
               <span className="text-amber-400 font-semibold"> JavaScript, TypeScript, Python, and Java
