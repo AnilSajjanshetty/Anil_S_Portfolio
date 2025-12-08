@@ -454,7 +454,7 @@ const App = () => {
                 <Briefcase className="w-5 h-5 text-amber-500" />
                 <div>
                   <p className="text-xs text-slate-500">Experience</p>
-                  <p className="font-semibold">2+ Years</p>
+                  <p className="font-semibold">3.8+ Years</p>
                 </div>
               </div>
               <div className="flex items-center justify-center lg:justify-start gap-3 text-slate-300">
