@@ -277,7 +277,7 @@ const App = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
           {[
-            { value: "2+", label: "Years Experience", icon: Award },
+            { value: "3.8+", label: "Years Experience", icon: Award },
             { value: "1,000+", label: "Concurrent Users", icon: Users },
             { value: "95%", label: "System Uptime", icon: TrendingUp },
             { value: "6+", label: "Major Projects", icon: Code }
