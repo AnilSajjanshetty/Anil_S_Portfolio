@@ -501,7 +501,7 @@ const App = () => {
                   { icon: Zap, text: "Team Collaboration: Strong team player with experience in Agile/Scrum environments and cross-functional collaboration" },
                   { icon: Award, text: "Problem Solving: Analytical mindset with systematic approach to troubleshooting and optimizing application performance" },
                   { icon: Briefcase, text: "Documentation: Skilled in creating technical documentation, user guides, and project-related documentation" },
-                  { icon: Sparkles, text: "Adaptability: Quick learner who successfully transitioned from mechanical engineering to software development in 2 years" }
+                  { icon: Sparkles, text: "Adaptability: Quick learner who successfully transitioned from mechanical engineering to software development in 3.8+ years" }
                 ].map((highlight, idx) => (
                   <div key={idx} className="flex items-start gap-3">
                     <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
